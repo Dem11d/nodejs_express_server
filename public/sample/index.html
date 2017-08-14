@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale-1.0">
+	<title>MOMENT LOTO</title>
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body class="body null">
+	<div class="window window_reg">
+		<form class="window__form" method="#" name="reg-form">
+			<div class="window__title">Registration</div>
+			<div class="window__content">
+				<label class="window__label" for="reg-form-username">
+					<span>Username</span>
+					<input class="window__input" id="reg-form-username" name="reg-form-username" type="text">
+				</label>
+				<label class="window__label" for="reg-form-phone">
+					<span>Phone</span>
+					<div class="window__phone">
+						<select class="select" name="reg-form-phone-mask" id="#">
+							<option value="1">Ukraine (+380)</option>
+							<option value="2">Russian (+765)</option>
+						</select>
+						<input class="window__input" id="reg-form-phone" name="reg-form-phone" type="tel" pattern="">
+					</div>
+				</label>
+				<label class="window__label" for="reg-form-email">
+					<span>Your Email</span>
+					<input class="window__input" id="reg-form-email" name="reg-form-email" type="email">
+				</label>
+				<label class="window__label" for="reg-form-pass">
+					<span>Password</span>
+					<input class="window__input" id="reg-form-pass" name="reg-form-pass" type="password">
+				</label>
+				<label class="window__label" for="reg-form-pass-again">
+					<span>Retype password</span>
+					<input class="window__input" id="reg-form-pass-again" name="reg-form-pass-again" type="password">
+				</label>
+				<p><input class="window__checkbox" id="accept-term" type="checkbox"><label class="window__check-label" for="accept-term"><span class="window__text">I have read and agreed to the </span><a class="window__link" href="#">Terms of Service</a></label></p>
+				<!--<div class="g-recaptcha" data-sitekey="your_site_key"></div>-->
+				<button class="window__btn" type="submit" name="reg-form-btn">Continue</button>
+			</div>
+			<div class="window__nav">
+				<div class="window__log">Login</div>
+				<div class="window__line"></div>
+				<div class="window__fog">Forgot password</div>
+			</div>
+		</form>
+	</div>
+	<div class="window window_log">
+		<form class="window__form" method="#" name="login-form">
+			<div class="window__title">Login</div>
+			<div class="window__content">
+				<label class="window__label" for="login-form-username">
+					<span>Username</span>
+					<input class="window__input" id="login-form-username" name="reg-form-username" type="text">
+				</label>
+				<label class="window__label" for="login-form-pass">
+					<span>Password</span>
+					<input class="window__input" id="login-form-pass" name="login-form-pass" type="password">
+				</label>
+				<div class="window__links">
+					<a class="window__lin window__lin_reg" href="#">Registration</a>
+					<a class="window__lin window__lin_fog-pass" href="#">Forgotten password?</a>
+				</div>
+				<button class="window__btn" type="submit" name="login-form-btn">Sign in</button>
+			</div>
+		</form>
+	</div>
+	<div class="window window_fp-first">
+		<form class="window__form" method="#" name="recover-form-first">
+			<div class="window__title">Востановление пароля</div>
+			<div class="window__content">
+				<label class="window__label" for="rff-input">
+					<span>Введите email, логин или мобильный телефон</span>
+					<input class="window__input" id="rff-input" name="rff-input" type="text">
+				</label>
+				<div class="g-recaptcha" data-sitekey="your_site_key"></div>
+				<button class="window__btn" type="submit" name="rff-btn">Продолжить</button>
+			</div>
+		</form>
+	</div>
+	<div class="window window_fp-second">
+		<div class="window__form" method="#" name="recover-form-second">
+			<div class="window__title">Востановление пароля</div>
+			<div class="window__content">
+				<label class="window__label" for="rfs-input">
+					<span>В течении 3 минут Вам email \телефон придет код, введите его ниже.</span>
+					<input class="window__input" id="rfs-input" name="rfs-input" type="text">
+					<span>Если код не пришел в течении 3 минут, <span>повторите попытку.</span></span>
+				</label>
+				<button class="window__btn" type="submit" name="rfs-btn">Продолжить</button>
+			</div>
+		</div>
+	</div>
+	<div class="window window_fp-thirth">
+		<div class="window__form" method="#" name="recover-form-thirth">
+			<div class="window__title">Востановление пароля</div>
+			<div class="window__content">
+				<label class="window__label" for="rft-input-pass">
+					<span>Пароль</span>
+					<input class="window__input" id="rft-input-pass" name="rft-input-pass" type="text">
+				</label>
+				<label class="window__label" for="rft-input-pass-again">
+					<span>Повторите пароль</span>
+					<input class="window__input" id="rft-input-pass-again" name="rft-input-pass-again" type="text">
+				</label>
+				<button class="window__btn" type="submit" name="rft-btn">Продолжить</button>
+			</div>
+		</div>
+	</div>
+	<div class="window window_fp-fourth">
+		<div class="window__form" method="#" name="recover-form-fourth">
+			<div class="window__title">Востановление пароля</div>
+			<div class="window__content">
+				<p>
+					<input class="window__checkbox" type="checkbox">
+					<label class="window__check-label" >
+						<span class="window__text">Ваш пароль был успешно изменен</span>
+					</label></p>
+				<button class="window__btn" type="submit" name="rft-btn">Войти</button>
+			</div>
+		</div>
+	</div>
+	<div class="modal create-room-modal">
+		<form method="#" class="create-room" name="create-room-form">
+			<div class="create-room__title"><span>New room</span><div class="cross cross_yellow"></div></div>
+			<div class="create-room__content">
+				<label class="create-room__row" for="">
+					<span>Presets:</span>
+					<select class="create-room__select" name="cr-chash-slct" id="#">
+						<option value="1">Demo</option>
+						<option value="2">Demo</option>
+					</select>
+				</label>
+				<label class="create-room__row" for="">
+					<span>Cash:</span>
+					<select class="create-room__select" name="cr-chash-slct" id="#">
+						<option value="1">Demo</option>
+						<option value="2">Demo</option>
+					</select>
+				</label>
+				<label class="create-room__row" for="">
+					<span>Min bet:</span>
+					<select class="create-room__select" name="cr-min-bet-slct" id="#">
+						<option value="1">Demo</option>
+						<option value="2">Demo</option>
+					</select>
+				</label>
+				<label class="create-room__row" for="">
+					<span>Max bet:</span>
+					<select class="create-room__select" name="cr-max-bet-slct" id="#">
+						<option value="1">Demo</option>
+						<option value="2">Demo</option>
+					</select>
+				</label>
+				<label class="create-room__row" for=""
+				><span>Timer:</span>
+					<select class="create-room__select" name="cr-timer-slct" id="#">
+						<option value="1">Demo</option>
+						<option value="2">Demo</option>
+					</select>
+				</label>
+				<label class="create-room__row" for="">
+					<span>Kind of room:</span>
+					<select class="create-room__select" name="cr-room-kind-slct" id="#">
+						<option value="1">Demo</option>
+						<option value="2">Demo</option>
+					</select>
+				</label>
+			</div>
+			<div class="create-room__bottom">
+				<div class="btn btn_orange btn_cancel">cancel</div>
+				<div class="tab"></div>
+				<button class="btn btn_yellow" name="create-room-btn">Create</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__top">
+				<a class="header__logo" href="#"><img src="img/logo.png" alt="Moment Loto"></a>
+				<h1 class="header__title">Lucky wheel</h1>
+				<div class="dropdown">
+					<div class="dropdown__eng"><span>english</span></div>
+					<ul class="dropdown__content">
+						<li class="dropdown__eng"><span>English</span></li>
+						<li class="dropdown__ukr"><span>Українська</span></li>
+						<li class="dropdown__ru"><span>Русский</span></li>
+						<li class="dropdown__pol"><span>Poland</span></li>
+					</ul>
+				</div>
+				<ul class="header__control">
+					<li class="header__info"></li>
+					<li class="header__volume"></li>
+					<li class="header__music"></li>
+				</ul>
+			</div>
+			<div class="header__bot">
+				<ul class="nav">
+					<li class="nav__item" data-attr="room">Комнаты</li>
+					<li class="nav__item" data-attr="gamers">Игроки</li>
+					<li class="nav__item" data-attr="stats">Статистика</li>
+				</ul>
+				<div class="line line__blue"></div>
+				<ul class="DCM">
+					<li class="DCM__item DCM__item_demo">
+						<span>Demo $998</span>
+					</li>
+					<li class="DCM__item DCM__item_cash">
+						<span>Cash $166</span>
+					</li>
+					<li class="DCM__item DCM__item_bit">
+						<span>Bitcoin 113</span>
+					</li>
+				</ul>
+				<div class="line line__yellow"></div>
+				<div class="header__mon-acc">
+					<div class="header__mon">
+						<form class="deposit" method="#" name="deposit-form">
+							<div class="deposit__title"><span>Deposit Now</span><span class="cross cross_green"></span></div>
+							<div class="deposit__content">
+								<label for="deposit-input-id" class="deposit__text">Ammount</label>
+								<input id="deposit-input-id" class="deposit__input" type="text" name="deposit-input">
+								<div class="deposit__text">Choose your payment method</div>
+								<ul class="pay-system">
+									<li class="pay-system__item pay-system__item_visa"></li>
+									<li class="pay-system__item pay-system__item_mc"></li>
+									<li class="pay-system__item pay-system__item_pp"></li>
+									<li class="pay-system__item pay-system__item_ps"></li>
+									<li class="pay-system__item pay-system__item_net"></li>
+									<li class="pay-system__item pay-system__item_skrill"></li>
+								</ul>
+							</div>
+							<div class="deposit__bottom">
+								<button class="deposit__btn" type="submit" name="deposit-btn">pay now</button>
+							</div>
+						</form>
+					</div>
+					<div class="header__acc">
+						<!--<ul class="profile-nav">-->
+							<!--<li class="profile-nav__item profile-nav__item_profile">Profile</li>-->
+							<!--<li class="profile-nav__item">Support</li>-->
+							<!--<li class="profile-nav__item">Log Out</li>-->
+						<!--</ul>-->
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="content">
+			<ul class="lamps lamps_top">
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue visible"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white visible"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green visible"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue visible"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green visible"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red visible"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white visible"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue visible"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green visible"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green visible"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue visible"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+			</ul>
+			<div class="info">
+				<div class="info__title">Банкир:</div>
+				<div class="info__text">Василий Павлюк</div>
+				<div class="info__title">Людей в комнате:</div>
+				<div class="info__text">45</div>
+			</div>
+			<ul class="made-a-bet">
+				<!--<li class="made-a-bet__item">Пугливая Сью сделала ставку  109$</li>-->
+				<!--<li class="made-a-bet__item">Мисис Попинс сделала ставку  109$</li>-->
+				<!--<li class="made-a-bet__item">Белый Джо сделал ставку  67$</li>-->
+				<!--<li class="made-a-bet__item">Уайт Спирит сделал ставку  44$</li>-->
+				<!--<li class="made-a-bet__item">Джон Уик сделал ставку  90$</li>-->
+				<!--<li class="made-a-bet__item">Пугливая Сью сделала ставку  109$</li>-->
+				<!--<li class="made-a-bet__item">Мисис Попинс сделала ставку  109$</li>-->
+				<!--<li class="made-a-bet__item">Белый Джо сделал ставку  67$</li>-->
+				<!--<li class="made-a-bet__item">Уайт Спирит сделал ставку  44$</li>-->
+				<!--<li class="made-a-bet__item">Джон Уик сделал ставку  90$</li>-->
+				<!--<li class="made-a-bet__item">Вася Пупкин сделал ставку  18$</li>-->
+			</ul>
+			<canvas id="canvas" class="canvas" width="600" height="620">
+			</canvas>
+			<div class="nav-pop-up">
+				<div class="nav-pop-up__table" data-attr="room">
+					<div class="nav-pop-up__wrap">
+						<table class="nav-pop-up__item">
+							<thead>
+								<tr class="nav-pop-up__row_title">
+									<th class="nav-pop-up__text nav-pop-up__text_width">№</th>
+									<th class="nav-pop-up__text nav-pop-up__text_left">Комната</th>
+									<th class="nav-pop-up__text">$</th>
+								</tr>
+							</thead>
+							<tbody class="nav-pop-up__body">
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">1</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">2</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">3</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">4</td>
+									<td class="nav-pop-up__text nav-pop-up__text_left">Комната</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="nav-pop-up__buttons">
+						<div class="btn">History</div>
+						<div class="tab"></div>
+						<div class="btn btn_yellow create-room-btn">Create new</div>
+					</div>
+				</div>
+				<div class="nav-pop-up__table" data-attr="gamers">
+					<div class="nav-pop-up__wrap">
+						<table class="nav-pop-up__item">
+							<thead>
+								<tr class="nav-pop-up__row_title">
+									<th class="nav-pop-up__text">Имя</th>
+									<th class="nav-pop-up__text">$</th>
+								</tr>
+							</thead>
+							<tbody class="nav-pop-up__body">
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">Барни</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">Смизерс</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">Енда</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+								<tr class="nav-pop-up__row">
+									<td class="nav-pop-up__text">Жирный Тони</td>
+									<td class="nav-pop-up__text">1100$</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="nav-pop-up__table" data-attr="stats">
+					<div class="nav-pop-up__wrap">
+						<table class="nav-pop-up__item">
+							<thead>
+								<tr class="nav-pop-up__row_title">
+									<th class="nav-pop-up__text">3333 Комната</th>
+									<th class="nav-pop-up__text">Диапазон</th>
+									<th class="nav-pop-up__text nav-pop-up__text_grey">Время</th>
+									<th class="nav-pop-up__text">$</th>
+								</tr>
+							</thead>
+							<tbody class="nav-pop-up__body">
+							<tr class="nav-pop-up__row">
+								<td class="nav-pop-up__text">Дарвин</td>
+								<td class="nav-pop-up__text">12:02</td>
+								<td class="nav-pop-up__text nav-pop-up__text_grey">12-20</td>
+								<td class="nav-pop-up__text">1100$</td>
+							</tr>
+							<tr class="nav-pop-up__row">
+								<td class="nav-pop-up__text">Дарвин</td>
+								<td class="nav-pop-up__text">12:02</td>
+								<td class="nav-pop-up__text nav-pop-up__text_grey">12-20</td>
+								<td class="nav-pop-up__text">1100$</td>
+							</tr>
+							<tr class="nav-pop-up__row">
+								<td class="nav-pop-up__text">Дарвин</td>
+								<td class="nav-pop-up__text">12:02</td>
+								<td class="nav-pop-up__text nav-pop-up__text_grey">12-20</td>
+								<td class="nav-pop-up__text">1100$</td>
+							</tr>
+							<tr class="nav-pop-up__row">
+								<td class="nav-pop-up__text">Дарвин</td>
+								<td class="nav-pop-up__text">12:02</td>
+								<td class="nav-pop-up__text nav-pop-up__text_grey">12-20</td>
+								<td class="nav-pop-up__text">1100$</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!--<ul class="nav-pop-up__item">-->
+					<!--<li class="nav-pop-up__text">-->
+						<!--<span class="nav-pop-up__room">1111 Комната</span>-->
+				<!--<span class="nav-pop-up__range">Диапазон</span>
+                <!--<span class="nav-pop-up__time">Время</span>-->
+						<!--<span class="nav-pop-up__rate">$</span>-->
+					<!--</li>-->
+				<!--</ul>-->
+			</div>
+			<div class="chat">
+				<div class="chat__content">
+					<div class="chat__title">Чат</div>
+					<ul class="chat__messages">
+						<li class="chat__item chat__item_output">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_input">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_output">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_input">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_output">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_output">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_input">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_output">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_output">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_output">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+						<li class="chat__item chat__item_output">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+
+						<li class="chat__item chat__item_input">
+							<div class="chat__description">
+								<span class="chat__name">Имя игрока </span>
+								<span class="chat__time">23:15</span>
+							</div>
+							<p class="chat__text">Ну что, Мистер Бернс, готов отыгарть свои денюшки?</p>
+						</li>
+					</ul>
+					<div class="chat__bottom">
+						<div class="chat__textarea" contenteditable="true" data-text="Введите сообщение"></div>
+						<div class="chat__send"></div>
+						<div class="smile__btn"></div>
+						<div class="smile__content">
+							<i class="smile__item smile__item_1"></i>
+							<i class="smile__item smile__item_2"></i>
+							<i class="smile__item smile__item_3"></i>
+							<i class="smile__item smile__item_4"></i>
+							<i class="smile__item smile__item_5"></i>
+							<i class="smile__item smile__item_6"></i>
+							<i class="smile__item smile__item_7"></i>
+							<i class="smile__item smile__item_8"></i>
+							<i class="smile__item smile__item_9"></i>
+							<i class="smile__item smile__item_10"></i>
+							<i class="smile__item smile__item_11"></i>
+							<i class="smile__item smile__item_12"></i>
+							<i class="smile__item smile__item_13"></i>
+							<i class="smile__item smile__item_14"></i>
+							<i class="smile__item smile__item_15"></i>
+							<i class="smile__item smile__item_16"></i>
+							<i class="smile__item smile__item_17"></i>
+							<i class="smile__item smile__item_18"></i>
+							<i class="smile__item smile__item_19"></i>
+							<i class="smile__item smile__item_20"></i>
+						</div>
+					</div>
+				</div>
+				<div class="chat__btn">
+					Чат
+					<div class="chat__amount">10</div>
+				</div>
+			</div>
+			<ul class="lamps lamps_bottom">
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue visible"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white visible"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green visible"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue visible"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green visible"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red visible"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white visible"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue visible"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green visible"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green visible"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet visible"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+				<li class="lamps__wrap">
+					<div class="lamps__item lamps__item_red"></div>
+					<div class="lamps__item lamps__item_blue visible"></div>
+					<div class="lamps__item lamps__item_green"></div>
+					<div class="lamps__item lamps__item_violet"></div>
+					<div class="lamps__item lamps__item__white"></div>
+				</li>
+			</ul>
+		</main>
+		<footer class="footer">
+			<div class="footer-main-content">
+				<div class="rangeSlider">
+					<div class="rangeSlider__content">
+						<span class="rangeSlider__text rangeSlider__text_green">min</span>
+						<div id="rangeSlider"></div>
+						<span class="rangeSlider__text rangeSlider__text_red">max</span>
+					</div>
+					<div class="min-max">
+						<div class="min-max__min">$ 1</div>
+						<div class="min-max__max">$ 100</div>
+					</div>
+				</div>
+				<div class="info-table info-table_my-bet">
+					<div class="info-table__top">
+						<span class="info-table__title">Моя ставка</span>
+					</div>
+					<div class="info-table__bot info-table__bot_orange">
+						<span class="info-table__amount info-table__amount_orange">32$</span>
+					</div>
+				</div>
+				<div class="info-table">
+					<div class="info-table__top">
+						<span class="info-table__title">Общая ставка</span>
+					</div>
+					<div class="info-table__bot info-table__bot_red">
+						<span class="info-table__amount info-table__amount_red">127$</span>
+					</div>
+				</div>
+				<div class="info-table">
+					<div class="info-table__top">
+						<span class="info-table__title">Шанс</span>
+					</div>
+					<div class="info-table__bot info-table__bot_green">
+						<span class="info-table__amount info-table__amount_green">63% / 32t</span>
+					</div>
+					<!--arrow_green_anim-->
+					<div class="arrow arrow_green">
+						<span class="arrow__main"></span>
+					</div>
+					<!--arrow_red_anim-->
+					<div class="arrow arrow_red">
+						<span class="arrow__main"></span>
+					</div>
+				</div>
+				<div class="bet-now-btn"><div class="bet-now-btn__text">bet now</div></div>
+				<!--progress-bar_anim-->
+				<div class="progress-bar">
+					<div class="progress-bar__item">
+						<div class="progress-bar__bg"></div>
+						<div class="progress-bar__anim"></div>
+					</div>
+					<div class="progress-bar__timer">timer <span class="progress-bar__current-time">0</span>s</div>
+				</div>
+			</div>
+			<div class="coin"></div>
+		</footer>
+	</div>
+	<script src="js/libs.min.js" ></script>
+	<script src="js/common.js" ></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+	<script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
+	<script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+	<script type="text/javascript" src="js/TextObject.js"></script>
+	<script type="text/javascript" src="js/Preloader.js"></script>
+	<script type="text/javascript" src="js/Wheel.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
