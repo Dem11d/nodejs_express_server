@@ -9,6 +9,7 @@ function Wheel(canvasId) {
 
     let stage = new createjs.Stage(canvasId);
     let rotationContainer = new createjs.Container();
+    let textContainer = new createjs.Container();
     let mainContainer = new createjs.Container();
     mainContainer.alpha = 0;
 
@@ -21,15 +22,13 @@ function Wheel(canvasId) {
         createjs.Ticker.addEventListener("tick", function () {
             stage.update();
         });
-        createjs.Ticker.setFPS(35);
+        createjs.Ticker.setFPS(60);
 
     }
 
     function renderWheel() {
 
-
         //rotationContainer
-
         rotationContainer.regX = 220;
         rotationContainer.regY = 220;
         rotationContainer.x = 300;
@@ -38,7 +37,40 @@ function Wheel(canvasId) {
         //wheel
         let wheel = new createjs.Bitmap(preloader.getResult("wheel"));
         rotationContainer.addChild(wheel);
-        console.log(wheel);
+
+        //textContainer
+        rotationContainer.addChild(textContainer);
+
+        //front
+        let data = {
+            images:[preloader.getResult("sprite")],
+            frames:{
+                width:440,
+                height:440,
+            },
+            animations:{
+                fill:0,
+                show:[0,62,"transparent",0.3],
+                hide:{frames:(function(){
+                    let result = [];
+                    for(let i = 62;i>=0;i--){
+                        result.push(i);
+                    }
+                    return result;
+                }()),
+                next:"fill",
+                speed:0.3},
+                transparent: 62,
+            }
+        };
+        console.log(data.animations.hide);
+        let spriteSheet = new createjs.SpriteSheet(data);
+        console.log(spriteSheet);
+        let front = new createjs.Sprite(spriteSheet);
+        front.gotoAndPlay("hide");
+        console.log(front.spriteSheet.framerate);
+        rotationContainer.addChild(front);
+        renderWheel.front = front;
 
         //background
         let background = new createjs.Bitmap(preloader.getResult("background"));
@@ -74,7 +106,9 @@ function Wheel(canvasId) {
                 .to({alpha: 1}, 2000, createjs.Ease.quadOut);
         }
 
+
         prettyShow();
+        TextObject("444444", 2, textContainer);
 
     }
 
@@ -99,8 +133,8 @@ function Wheel(canvasId) {
                 pattern: createjs.Ease.linear
             },
             stopping: {
-                wheels: 3,
-                time: 45 * timeCoef,
+                wheels: 4,
+                time: 40 * timeCoef,
                 pattern: createjs.Ease.quadOut
             }
         };
@@ -159,26 +193,13 @@ function Wheel(canvasId) {
 
         function hideText() {
 
-            if (TextObject.containers) {
-                console.log("hiding text");
-                for (let i = 0; i < TextObject.containers.length; i++) {
-                    let tween = createjs.Tween.get(TextObject.containers[i], {override: true})
-                        .to({alpha: 0}, 3200);
-                }
-            } else
-                console.log("there is no text to hide");
+            console.log(TextObject.containers);
+            renderWheel.front.gotoAndPlay("hide");
         }
 
         function appearText() {
 
-            if (TextObject.containers) {
-                console.log(`appearing text`);
-                for (let i = 0; i < TextObject.containers.length; i++) {
-                    let tween = createjs.Tween.get(TextObject.containers[i], {override: true})
-                        .to({alpha: 1}, 2000);
-                }
-            } else
-                console.log("there is nothing to show");
+            renderWheel.front.gotoAndPlay("show");
         }
 
 
@@ -196,7 +217,7 @@ function Wheel(canvasId) {
             }
             //render numbers
             for (let i = 0, current = win_position; i < 16; i++, current = getNextPosition(current)) {
-                new TextObject(numbers[i] + "", current, rotationContainer);
+                new TextObject(numbers[i] + "", current, textContainer);
             }
         }
 

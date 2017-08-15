@@ -15,6 +15,9 @@ function Preloader(callback){
         }, {
             id: "background",
             src: "resources/img/background.png"
+        }, {
+            id: "sprite",
+            src: "resources/img/sprite.png"
         }];
 
     //loading files
