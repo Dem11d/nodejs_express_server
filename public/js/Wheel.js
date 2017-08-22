@@ -1,16 +1,43 @@
-function Wheel(canvasId) {
+function Wheel(stage) {
     let canSpin = false;
     const segments = 16;
     const circle = 360;
     const segment_length = circle / segments;
+    const yOffset = 300;
+
+
+    let preload_source = [
+        {
+            id: "wheel",
+            src: "resources/img/wheel.png"
+        }, {
+            id: "center",
+            src: "resources/img/center.png"
+        }, {
+            id: "pointer",
+            src: "resources/img/pointer.png"
+        }, {
+            id: "shadows",
+            src: "resources/img/shadows.png"
+        }, {
+            id: "background",
+            src: "resources/img/background.png"
+        }, {
+            id: "sprite",
+            src: "resources/img/sprite.png"
+        }, {
+            id: "you_won",
+            src: "resources/img/you_won.png"
+        }];
 
     //initialization preloader
-    let preloader = new Preloader(handleComplete);
+    let preloader = new Preloader(preload_source,handleComplete);
 
-    let stage = new createjs.Stage(canvasId);
+
     let rotationContainer = new createjs.Container();
     let textContainer = new createjs.Container();
     let mainContainer = new createjs.Container();
+    mainContainer.y = yOffset;
     mainContainer.alpha = 0;
 
     stage.addChild(mainContainer);
@@ -18,11 +45,6 @@ function Wheel(canvasId) {
     function handleComplete() {
 
         renderWheel();
-
-        createjs.Ticker.addEventListener("tick", function () {
-            stage.update();
-        });
-        createjs.Ticker.setFPS(60);
 
     }
 
@@ -48,9 +70,10 @@ function Wheel(canvasId) {
                 width:440,
                 height:440,
             },
+            framerate:25,
             animations:{
                 fill:0,
-                show:[0,62,"transparent",0.3],
+                show:[0,62,"transparent"],
                 hide:{frames:(function(){
                     let result = [];
                     for(let i = 62;i>=0;i--){
@@ -58,8 +81,7 @@ function Wheel(canvasId) {
                     }
                     return result;
                 }()),
-                next:"fill",
-                speed:0.3},
+                next:"fill" },
                 transparent: 62,
             }
         };
@@ -71,6 +93,7 @@ function Wheel(canvasId) {
         console.log(front.spriteSheet.framerate);
         rotationContainer.addChild(front);
         renderWheel.front = front;
+
 
         //background
         let background = new createjs.Bitmap(preloader.getResult("background"));
@@ -108,7 +131,6 @@ function Wheel(canvasId) {
 
 
         prettyShow();
-        TextObject("444444", 2, textContainer);
 
     }
 
